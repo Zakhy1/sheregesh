@@ -5,7 +5,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from serializers.user import RegisterSerializer
+from users.serializers.user import RegisterSerializer
 
 
 class RegisterView(APIView):
