@@ -7,7 +7,6 @@ User = get_user_model()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = CustomUser
         fields = ('email', 'password')
@@ -20,3 +19,14 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    Для возврата автора поста
+    Пока что только email
+    """
+
+    class Meta:
+        model = CustomUser
+        fields = ('email',)

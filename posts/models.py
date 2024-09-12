@@ -9,9 +9,12 @@ class Tag(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
     time_created = models.DateTimeField(auto_now=True)
-    image = models.ImageField('')
-    tags = models.ForeignKey(Tag, on_delete=models.SET_NULL, null=True)
+    tags = models.ManyToManyField(Tag)
     description = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
+
     likes = models.PositiveIntegerField(default=0)
     views = models.PositiveIntegerField(default=0)
 
